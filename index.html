@@ -7,8 +7,8 @@
   <style>
     /* CSS Styles */
     body {
-      font-family: Arial, sans-serif;
-      background-color: #1a1a1a;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to bottom, #000000, #4CAF50); /* Black to Green gradient */
       color: #f2f2f2;
       margin: 0;
       padding: 0;
@@ -18,11 +18,16 @@
       max-width: 800px;
       margin: 0 auto;
       padding: 40px;
+      background-color: rgba(26, 26, 26, 0.8); /* Slightly transparent background for readability */
+      border-radius: 8px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
     }
 
     h1 {
       text-align: center;
       margin-bottom: 30px;
+      color: #00bcd4;
+      text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
     }
 
     .premium-buttons {
@@ -31,36 +36,57 @@
       margin-bottom: 40px;
     }
 
-    .premium-btn {
+    .premium-btn, .donate-btn {
       display: inline-block;
       padding: 12px 24px;
-      background-color: #4CAF50;
       color: #fff;
       text-decoration: none;
-      border-radius: 4px;
+      border-radius: 5px;
       margin: 0 10px;
       font-size: 16px;
-      transition: background-color 0.3s;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.3s, color 0.3s;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    .premium-btn {
+      background-color: #4CAF50;
     }
 
     .premium-btn:hover {
       background-color: #45a049;
+      transform: translateY(-3px);
+      color: #fff;
     }
 
     .donate-btn {
-      display: block;
-      margin: 0 auto 40px;
-      padding: 12px 24px;
       background-color: #FF9800;
-      color: #fff;
-      text-decoration: none;
-      border-radius: 4px;
-      font-size: 16px;
-      transition: background-color 0.3s;
     }
 
     .donate-btn:hover {
       background-color: #F57C00;
+      transform: translateY(-3px);
+      color: #fff;
+    }
+
+    .button-effect {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 300%;
+      height: 300%;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 50%;
+      transform: translate(-50%, -50%) scale(0);
+      transition: transform 0.5s, opacity 0.5s;
+      opacity: 0;
+    }
+
+    .premium-btn:hover .button-effect,
+    .donate-btn:hover .button-effect {
+      transform: translate(-50%, -50%) scale(1);
+      opacity: 1;
     }
 
     .premium-description {
@@ -74,19 +100,27 @@
       display: flex;
       justify-content: center;
       margin-bottom: 40px;
+      flex-wrap: wrap;
     }
 
     .tier-box {
       background-color: #2a2a2a;
       padding: 20px;
-      border-radius: 4px;
+      border-radius: 8px;
       text-align: center;
-      margin: 0 10px;
-      flex: 1;
+      margin: 10px;
+      flex: 1 1 300px;
+      transition: transform 0.3s;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    .tier-box:hover {
+      transform: translateY(-5px);
     }
 
     .tier-box h2 {
       margin-top: 0;
+      color: #00bcd4;
     }
 
     .tier-box p {
@@ -108,17 +142,23 @@
   <div class="container">
     <h1>Premium Script</h1>
     <div class="premium-buttons">
-      <a href="https://www.roblox.com/game-pass/899320180" class="premium-btn">Premium V1</a>
-      <a href="https://www.roblox.com/game-pass/889467578" class="premium-btn">Premium V2</a>
+      <a href="https://www.roblox.com/game-pass/899320180" class="premium-btn">Premium V1
+        <span class="button-effect"></span>
+      </a>
+      <a href="https://www.roblox.com/game-pass/889467578" class="premium-btn">Premium V2
+        <span class="button-effect"></span>
+      </a>
     </div>
-    <a href="https://vxp-ui.github.io/DonationWeb/" class="donate-btn">Donate</a>
+    <a href="https://vxp-ui.github.io/DonationWeb/" class="donate-btn">Donate
+      <span class="button-effect"></span>
+    </a>
     <div class="premium-description">
-      <p>Unlock the full potential of our script with our premium tiers. Gain access to advanced features, priority support, and exclusive updates. Now about donating, donating 250 or higher will grant you V2 and V1. Contact me on discord for more info or join my server. User is c5xk.</p>
+      <p>Unlock the full potential of our script with our premium tiers. Gain access to advanced features, priority support, and exclusive updates. Donating 250 RBX or higher will grant you both V1 and V2. Contact me on Discord for more info or join my server. User is c5xk.</p>
     </div>
     <div class="tier-container">
       <div class="tier-box">
         <h2>Premium V1 Role</h2>
-        <p>The Premium V1 Role offers a range of advanced features to enhance your script's functionality. Enjoy priority support, access to exclusive updates, advanced analytics, reporting tools, and 1 month of premium keyless access to tailor the script to your needs.</p>
+        <p>The Premium V1 Role offers a range of advanced features to enhance your script's functionality. Enjoy priority support, access to exclusive updates, and more!</p>
         <ul>
           <li>Priority support</li>
           <li>Exclusive updates</li>
@@ -129,7 +169,7 @@
       </div>
       <div class="tier-box">
         <h2>Premium V2 Role</h2>
-        <p>The Premium V2 Role takes your script to the next level. In addition to the Premium V1 Role features, you'll gain the ability to talk directly to the script owner to ensure your success, as well as lifetime access to a keyless beta version.</p>
+        <p>The Premium V2 Role takes your script to the next level. You'll gain the ability to talk directly to the script owner, and have lifetime access to a keyless beta version.</p>
         <ul>
           <li>Priority support</li>
           <li>Exclusive updates</li>
